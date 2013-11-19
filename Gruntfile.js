@@ -1,12 +1,5 @@
 module.exports = function(grunt){
 
-    var appArr = [
-        'repairHistory',
-        'raHistory',
-        'mobilitySupportHistory',
-        'serviceHistory'
-    ];
-
     grunt.initConfig({
 
         jshint: {
@@ -40,8 +33,8 @@ module.exports = function(grunt){
 
         uglify: {
             build: {
-                src:  './components/requirejs/require.js',
-                dest: '../webapp/components/requirejs/require.js'
+                src:  './bower_components/requirejs/require.js',
+                dest: '../webapp/bower_components/requirejs/require.js'
             }
         },
 
@@ -49,18 +42,22 @@ module.exports = function(grunt){
             compile: {
                 options: {
                     // main path
-                    baseUrl: "./js/" + appArr[0],
+                    baseUrl: "./js",
 
                     paths: {
-                        'initParameters':         'empty:',
-                        'jquery':                 '../../components/jquery/jquery',
-                        'underscore':             '../../components/underscore/underscore',
-                        'backbone':               '../../components/backbone/backbone',
-                        'JSON':                   '../../components/json2/json2',
-                        'text':                   '../../components/requirejs-text/text',
-                        'marionette':             '../../components/marionette/lib/backbone.marionette',
-                        'config':                 '../config',
-                        'bootstrap':              '../bootstrap'
+                        'jquery':                 '../bower_components/jquery/jquery',
+                        'underscore':             '../bower_components/underscore/underscore',
+                        'backbone':               '../bower_components/backbone/backbone',
+                        'backboneValidation':     '../bower_components/backbone-validation/src/backbone-validation',
+                        'JSON':                   '../bower_components/json2/json2',
+                        'bootstrap-tab':          '../bower_components/sass-bootstrap/js/bootstrap-tab',
+                        'text':                   '../bower_components/requirejs-text/text',
+                        'select2':                '../bower_components/select2/select2',
+                        'marionette':             '../bower_components/backbone.marionette/lib/backbone.marionette',
+                        'backbone-forms':         '../bower_components/backbone-forms/distribution/backbone-forms',
+                        'backbone-forms-bootstrap':'../bower_components/backbone-forms/distribution/templates/bootstrap',
+                        'backbone-validation':    '../bower_components/backbone-validation/dist/backbone-validation',
+                        'bootstrap-datepicker':    '../bower_components/bootstrap-datepicker/js/bootstrap-datepicker'
                     },
 
                     shim:{
@@ -70,10 +67,31 @@ module.exports = function(grunt){
                         backbone: {
                             deps: ['underscore', 'JSON', 'jquery'],
                             exports: 'Backbone'
-                        },        
+                        },
+                        backboneValidation: {
+                            deps: ['backbone']
+                        },
+                        select2: {
+                            deps: ['jquery']
+                        },
+                        'bootstrap-tab': {
+                            deps: ['jquery']
+                        },
                         marionette: {
                             deps: ['backbone'],
                             exports: 'Marionette'
+                        },
+                        'backbone-forms': {
+                            deps: ['backbone']
+                        },
+                        'backbone-forms-bootstrap': {
+                            deps: ['backbone-forms']
+                        },
+                        'backbone-validation': {
+                            deps: ['backbone']
+                        },
+                        'bootstrap-datepicker': {
+                            deps: ['jquery']
                         }
                         
                     },
@@ -88,7 +106,7 @@ module.exports = function(grunt){
                     optimize: "uglify",
 
                     // name of optimized file
-                    out: "../webapp/js/" + appArr[0] + ".build.js"
+                    out: "../webapp/js/finance.build.js"
                 }
             }
         },
@@ -96,7 +114,7 @@ module.exports = function(grunt){
         copy: {
             build: {
                 files: {
-                    '../webapp/':                           ['./img/**',  './font/**', './*.ico']
+                    '../webapp/':                           ['./img/**',  './font/**', './*.html', './*.ico']
                 }
             }
         },
@@ -129,5 +147,5 @@ module.exports = function(grunt){
     grunt.registerTask('default', 'jshint');
     grunt.registerTask('checkcss', 'csslint');
     grunt.registerTask('sass', 'compass:development');
-    grunt.registerTask('build', ['jshint', 'clean', 'uglify', 'compass:build', 'requirejs:compile', 'copy:build']);
+    grunt.registerTask('build', ['jshint', 'clean', 'uglify', 'compass:build', 'requirejs:compile', 'copy:build', 'useminPrepare', 'usemin']);
 };
