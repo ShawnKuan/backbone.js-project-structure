@@ -1,0 +1,27 @@
+{
+  "name": "Finance",
+  "version": "1.0.0",
+  "dependencies": {
+    "backbone": "1.*",
+    "backbone-validation": "*",
+    "backbone-forms": "*",
+    "underscore": "1.*",
+    "json2": "*",
+    "requirejs": "2.*",
+    "requirejs-text": "2.*",
+    "requirejs-domready": "~2.0",
+    "jquery": "1.9.*",
+    "backbone.marionette": "*",
+    "jasmine": "*",
+    "jasmine-jquery": "*",
+    "jasmine-ajax": "*",
+    "polyglot": "*",
+    "bootstrap-sass":  "~2",
+    "bootstrap-switch":  "*",
+    "mobiscroll": "*",
+    "underscore.string": "*",
+    "underscore-before": "~1",
+    "moment": "*",
+    "modernizr": "*"
+  }
+}

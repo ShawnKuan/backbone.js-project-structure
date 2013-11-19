@@ -1,0 +1,39 @@
+{
+  "name": "france",
+  "version": "0.0.0",
+  "description": "france record",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4",
+    "grunt-contrib-clean": "~0.4",
+    "grunt-contrib-requirejs": "~0.3.4",
+    "grunt-contrib-jshint": "~0.1",
+    "grunt-contrib-uglify": "~0.1",
+    "grunt-contrib-compass": "~0.1.2",
+    "grunt-contrib-compress": "~0.4",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-jasmine": "~0.3.2",
+    "temporary": "~0.0.5",
+    "grunt-usemin": "~0.1",
+    "grunt-shell": "~0.2",
+    "grunt-template-jasmine-requirejs": "*",
+    "grunt-concurrent": "~0",
+    "grunt-docco2": "*",
+    "grunt-svninfo": "*",
+    "grunt-preprocess": "*",
+    "grunt-modernizr": "~0"
+  },
+  "devDependencies": {
+    "grunt-cli": "~0.1.6",
+    "grunt": "~0.4.0",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-jshint": "~0.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "",
+  "license": "",
+  "readmeFilename": ""
+}
