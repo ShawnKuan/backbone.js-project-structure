@@ -1,10 +1,14 @@
 define([
 	'underscore',
     'backbone',
+    'bootstrap',
+    'config',
     'app'
 ], function(
 	_,
     Backbone,
+    Bootstrap,
+    Config,
     App
 ){
 	var Router = Backbone.Router.extend({

@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'marionette',
-
+    'services/Translator',
 
     'text!./templates/app.html'
 ], function(
@@ -10,17 +10,25 @@ define([
     _,
     Marionette,
 
-
+    Translator,
     tmplApp
 ) {
 
     var AppLayout = Marionette.Layout.extend( {
         template: _.template( tmplApp ),
 
-
         el: $('body'),
 
+        events: {
+            'click .switch-lang' : 'switchLanguage'
+        },
+        
+        templateHelpers: {
+            language: Translator.getLanguage()
+        },
+
         initialize: function(){
+            /*(̅_̅_̅(̲̲̲̅̅̅(̅_̅_̲̅_̅̅_̅_̅_̅_̅()ڪے */
             Backbone.on('ajax:before', this.wait, this);
             Backbone.on('ajax:after', this.stopWaiting, this);
             Backbone.on('ajax:error', this.ajaxError, this);
@@ -40,6 +48,15 @@ define([
 
         login: function() {
             this.render();
+        },
+
+        switchLanguage: function(event) {
+            event.preventDefault();
+            var langs = {
+                'en-US': 'zh-CN',
+                'zh-CN': 'en-US'
+            };
+            Backbone.trigger('language:change', langs[Translator.getLanguage()]);
         }
 
     });

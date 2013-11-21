@@ -8,14 +8,9 @@ define([
     'underscore',
     'config',
 
-    // These dependencies just need to be included one time, but are not "required"
-    // for the code in this file
-    // 'services/piwik',
-    // 'https:' == document.location.protocol ? 'piwikAnalyticsHttps' : 'piwikAnalyticsHttp',
-    // 'services/tracker',
-    'backbone-forms',
-    'backbone-forms-list',
-    'backbone-forms-tmpl-bootstrap'
+    'services/Translator',
+    'services/Storage',
+    'backbone-forms'
 
 ], function(
     BackboneValidation,

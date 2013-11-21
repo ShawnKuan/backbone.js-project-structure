@@ -16,7 +16,7 @@
     "jasmine-jquery": "*",
     "jasmine-ajax": "*",
     "polyglot": "*",
-    "bootstrap-sass":  "~2",
+    "bootstrap-sass":  "~3",
     "bootstrap-switch":  "*",
     "mobiscroll": "*",
     "underscore.string": "*",

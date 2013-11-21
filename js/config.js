@@ -37,16 +37,6 @@ define([
         config.isIOS = true;
     }
 
-    // check for small screensize to add functionality to mobile/desktop version
-    if (Modernizr.mq('(max-width: 767px)')) {
-        config.isScreenSm = true;
-    }
-
-    // check if browser supports transitions
-    if (Modernizr.csstransitions) {
-        config.isCssTransitions = true;
-    }
-
     // if IE no ajax caching
     if ($('html').hasClass('ua-trident')) {
         $.ajaxSetup({ cache: false });
